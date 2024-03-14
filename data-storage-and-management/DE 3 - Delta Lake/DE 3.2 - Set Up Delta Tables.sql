@@ -76,6 +76,11 @@ DESCRIBE EXTENDED sales;
 
 -- COMMAND ----------
 
+-- MAGIC %python
+-- MAGIC
+
+-- COMMAND ----------
+
 CREATE OR REPLACE TABLE sales_unparsed AS
 SELECT * FROM csv.`${da.paths.datasets}/ecommerce/raw/sales-csv`;
 
@@ -174,7 +179,7 @@ CREATE OR REPLACE TABLE purchase_dates (
   date DATE GENERATED ALWAYS AS (
     cast(cast(transaction_timestamp/1e6 AS TIMESTAMP) AS DATE))
     COMMENT "generated based on `transactions_timestamp` column")
-  TBLPROPERTIES ('created.by.user' = 'John', 'created.date' = '01-01-2001', 'delta.appendOnly' = 'true')
+  TBLPROPERTIES ('created.by.user' = 'dataops', 'created.date' = '13-03-2024', 'delta.appendOnly' = 'true')
 
 -- COMMAND ----------
 

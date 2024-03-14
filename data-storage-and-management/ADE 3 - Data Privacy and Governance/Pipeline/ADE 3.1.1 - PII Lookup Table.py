@@ -22,9 +22,20 @@
 
 # COMMAND ----------
 
+# MAGIC %pip install dlt
+
+# COMMAND ----------
+
+# MAGIC %pip install --upgrade typing-extensions
+
+# COMMAND ----------
+
 import dlt
 import pyspark.sql.functions as F
+from pyspark.sql import SparkSession
 
+# Create SparkSession
+spark = SparkSession.builder.getOrCreate()
 source = spark.conf.get("source")
 
 # COMMAND ----------
